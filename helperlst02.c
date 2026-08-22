@@ -31,3 +31,13 @@ t_stack *ft_lstmax(t_stack *stack)
 	}
 	return (max_node);
 }
+
+t_stack	*ft_lsttail(t_stack *stack)
+{
+	t_stack	*tail;
+
+	tail = stack;
+	while (tail->next)
+		tail = tail->next;
+	return (tail);
+}

@@ -10,39 +10,38 @@ t_stack	*ft_lstnew(int value)
 		new->value = value;
 		new->prev = 0;
 		new->next = 0;
+		new->index = 0;
 	}
 	return (new);
 }
 
 void	ft_lstadd_back(t_stack **stack, t_stack *new)
 {
+	t_stack *tail;
+
 	if (!stack || !new)
 		return;
-	if (*stack)
+	else if(!*stack)
 	{
-		new->prev = (*stack)->prev;
-		(*stack)->prev->next = new;
-		(*stack)->prev = new;
-	}
-	else
-	{
-		new->prev = new;
 		*stack = new;
+		return ;
 	}
+	tail = ft_lsttail(*stack);
+	tail->next = new;
+	new->prev = tail;
 }
 
 void	ft_lstadd_front(t_stack **stack, t_stack *new)
 {
 	if (!stack || !new)
-return ;
-	if (*stack)
+		return ;
+	if (!*stack)
 	{
-		new->prev = (*stack)->prev;
-		(*stack)->prev = new;
-	}
-	else
-		new->prev = new;
+		*stack = new;	
+		return ;
+	}	
 	new->next = *stack;
+	(*stack)->prev = new;
 	*stack = new;
 }
 

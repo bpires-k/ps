@@ -25,7 +25,7 @@ typedef struct s_stack {
 
 //main.c
 int main(int argc, char **argv);
-void sort_stact(t_bench *bm, t_stack **a, t_stack **b, int size);
+void sort_stack(t_bench *bm, t_stack **a, t_stack **b, int size);
 double	compute_disorder(t_stack *stack);
 
 //init_bench.c
@@ -65,6 +65,8 @@ int add_value(t_stack **a, int value);
 //helperlst02.c
 t_stack *ft_lstmin(t_stack *stack);
 t_stack *ft_lstmax(t_stack *stack);
+t_stack	*ft_lsttail(t_stack *stack);
+
 //moves01.c
 void swap(t_stack **stack);
 void rotate(t_stack **stack);

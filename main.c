@@ -23,7 +23,7 @@ double compute_disorder(t_stack *stack)
 		current = current->next;
 	}
 	if (total_pairs == 0)
-	return (0);
+		return (0);
 	return (mistakes / total_pairs);
 }
 
@@ -44,7 +44,7 @@ void	sort_stack(t_bench *bm, t_stack **a, t_stack **b, int size)
 		if (bm->disorder && size > 5)
 			bucket_sort(bm, a, b, size);
 		small_sort(bm, a, b, size);
-}
+	}
 	else
 	{
 		bm->big_o = "nlogn";

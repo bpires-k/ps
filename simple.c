@@ -37,6 +37,7 @@ void	findmin_sort(t_bench *bm, t_stack **a, t_stack **b, int size)
 			while ((*a)->value != min)
 				rra(bm, a, b);
 		pb(bm, a, b);
+		--current_size;
 	}
 	while (*b)
 		pa(bm, a, b);
