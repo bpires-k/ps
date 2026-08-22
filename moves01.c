@@ -2,14 +2,18 @@
 
 void	swap(t_stack **stack)
 {
+	t_stack	*second;
+
 	if (!stack || !*stack ||  !(*stack)->next)
 		return ;
-	(*stack)->prev = (*stack)->next;
-	(*stack)->next = (*stack)->prev->next;
-	(*stack)->prev->prev = 0;
-	(*stack)->next = *stack;
+	second = (*stack)->next;
+	(*stack)->next = second->next;
+	(*stack)->prev = second;
+	second->prev = 0;
+	second->next = *stack;
 	if ((*stack)->next)
-		(*stack)->next->prev = *stack;
+		(*stack)->next->prev = (*stack);
+	*stack = second;
 }
 
 void	rotate(t_stack **stack)

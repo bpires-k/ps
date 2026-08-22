@@ -35,7 +35,7 @@ void	sort_mt3(t_bench *bm, t_stack **a, t_stack **b, int size)
 
 void	small_sort(t_bench *bm, t_stack **a, t_stack **b, int size)
 {
-	if (!bm->disorder || is_sorted(a, b))
+	if (!a || !*a || is_sorted(a, b))
 		return ;
 	if (size == 2)
 		sort_2(bm, a, b);
