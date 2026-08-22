@@ -2,7 +2,12 @@
 
 int	set_value(t_stack **a, char *av)
 {
-	
+	long	value;
+
+	value = ft_atol(av);
+	if (value <= INT_MAX || value >= INT_MIN)
+		return (add_value(a, (int)value));
+	return (0);
 }
 int	set_flag(t_bench *benchmark, char *av)
 {
@@ -36,7 +41,7 @@ int	set_input(t_bench *benchmark, t_stack **a, char *av)
 
 int	set_inputs(t_bench *benchmark, t_stack **a, char **av)
 {
-	int	input_status;
+int	input_status;
 	int	arg_status;
 	int	arg_len;
 
@@ -53,8 +58,9 @@ int	set_inputs(t_bench *benchmark, t_stack **a, char **av)
 	if (input_status == -1)
 		return (-1);
 	arg_status += input_status + 1;
-	return (ar_status);
+	return (arg_status);
 }
+
 int	input_checker(t_bench *benchmark, t_stack **a, int ac, char **av)
 {
 	int	arg_status;
@@ -67,7 +73,7 @@ int	input_checker(t_bench *benchmark, t_stack **a, int ac, char **av)
 	{
 		arg_status = 0;
 		while (*av[i] == ' ')
-			++av[i];
+	++av[i];
 		if (*av[i] == 0)
 			return (-1);
 		while (arg_status < 2)
@@ -82,4 +88,26 @@ int	input_checker(t_bench *benchmark, t_stack **a, int ac, char **av)
 		}
 	}
 	return (num_count);
+}
+
+void	init_index(t_stack **stack)
+{
+	int		i;
+	t_stack	*current;
+	t_stack	*tester;
+
+	current = *stack;
+	while (current)
+	{
+		i = 1;
+		tester = current->next;
+		while (tester)
+		{
+			if (current->value > tester->value)
+				++i;
+			tester = tester->next;
+		}
+		current->index = i;
+		current = current->next;
+	}
 }

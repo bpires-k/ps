@@ -20,3 +20,8 @@ t_bench	*init_bench(void)
 	}
 	return (benchmark);
 }
+
+void	print_bench(t_bench *bm)
+{
+	
+}
