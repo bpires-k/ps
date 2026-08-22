@@ -23,11 +23,12 @@ void	rotate(t_stack **stack)
 	if (!stack || !*stack || !(*stack)->next)
 		return;
 	tail = ft_lsttail(*stack);
+	tail->next = *stack;
 	(*stack)->prev = tail;
-	(*stack)->next->prev = 0;
-	tail = *stack;
 	*stack = (*stack)->next;
+	tail = tail->next;
 	tail->next = 0;
+	(*stack)->prev = 0;
 }
 
 void	r_rotate(t_stack **stack)
