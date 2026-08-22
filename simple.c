@@ -24,7 +24,7 @@ void	findmin_sort(t_bench *bm, t_stack **a, t_stack **b, int size)
 	int	min;
 
 	current_size = size;
-	while (*a)
+	while (current_size > 1)
 	{
 		min = ft_lstmin(*a)->value;
 		position = find_position(*a, min);
