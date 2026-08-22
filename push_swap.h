@@ -38,15 +38,14 @@ int free_all(t_bench *bm, t_stack **a, t_stack **b);
 int error(t_bench *bm, t_stack **a, t_stack **b);
 
 //input.c
-int set_value(t_stack **a, char *av);
-int set_flag(t_bench *benchmark, char *av);
-int set_input(t_bench *benchmark, t_stack **a, char *av);
-int	set_inputs(t_bench *benchmark, t_stack **a, char **av);
-int	input_checker(t_bench *benchmark, t_stack **a,int ac, char **av);
-void init_index(t_stack **a);
+int set_value(t_stack **a, char *arg);
+int set_flag(t_bench *benchmark, char *arg);
+int set_input(t_bench *benchmark, t_stack **a, char *arg);
+int	set_inputs(t_bench *benchmark, t_stack **a, char **arg);
+int	check_inputs(t_bench *benchmark, t_stack **a,int ac, char **av);
 
 //helper01.c
-long ft_atol(char *nb);
+long long ft_atoi(char *nb);
 int ft_strcmp(char *s1, char *s2);
 int	ft_sqrt(int nb);
 int is_sorted(t_stack **a, t_stack **b);
@@ -66,6 +65,7 @@ int add_value(t_stack **a, int value);
 t_stack *ft_lstmin(t_stack *stack);
 t_stack *ft_lstmax(t_stack *stack);
 t_stack	*ft_lsttail(t_stack *stack);
+void init_index(t_stack **a);
 
 //moves01.c
 void swap(t_stack **stack);

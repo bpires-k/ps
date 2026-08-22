@@ -41,3 +41,25 @@ t_stack	*ft_lsttail(t_stack *stack)
 		tail = tail->next;
 	return (tail);
 }
+
+void	init_index(t_stack **stack)
+{
+	int		i;
+	t_stack	*current;
+	t_stack	*tester;
+
+	current = *stack;
+	while (current)
+	{
+		i = 1;
+		tester = current->next;
+		while (tester)
+		{
+			if (current->value > tester->value)
+				++i;
+			tester = tester->next;
+		}
+		current->index = i;
+		current = current->next;
+	}
+}

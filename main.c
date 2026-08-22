@@ -66,7 +66,7 @@ int	main(int argc, char **argv)
 		return (1);
 	a = 0;
 	b = 0;
-	num_count = input_checker(benchmark, &a, argc - 1, &argv[1]);
+	num_count = check_inputs(benchmark, &a, argc - 1, &argv[1]);
 	if (num_count == -1)
 		return (error(benchmark, &a, &b));
 	if (num_count == 0)

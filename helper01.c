@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-long	ft_atol(char *nb)
+long long	ft_atoi(char *nb)
 {
 	long	result;
 	int		sign;
@@ -13,14 +13,14 @@ long	ft_atol(char *nb)
 		++nb;
 	}
 	if (!(*nb >= '0' && *nb <= '9'))
-		return ((long)INT_MAX + 1);
+		return ((long long)INT_MAX + 1);
 	while (*nb >= '0' && *nb <= '9')
 	{
 		result = result * 10 + (*nb - '0') * sign;
 		++nb;
 	}
 	if (*nb)
-		return ((long)INT_MAX + 1);
+		return ((long long)INT_MAX + 1);
 	return (result);
 }
 
