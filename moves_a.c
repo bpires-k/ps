@@ -1,17 +1,17 @@
 #include "push_swap.h"
 
-void	sa(t_bench *bm, t_stack **a, t_stack **b);
+void	sa(t_bench *bm, t_stack **a, t_stack **b)
 {
 	(void)b;
-	s(a);
+	swap(a);
 	++bm->moves[0];
 	write(1, "sa\n", 3);
 }
 
-void	ra(t_bench *bm, t_stack **a, t_stack **b);
+void	ra(t_bench *bm, t_stack **a, t_stack **b)
 {
 	(void)b;
-	r(a);
+	rotate(a);
 	++bm->moves[1];
 	write(1, "ra\n", 3);
 }
@@ -19,14 +19,14 @@ void	ra(t_bench *bm, t_stack **a, t_stack **b);
 void	rra(t_bench *bm, t_stack **a, t_stack **b)
 {
 	(void)b;
-	rr(a);
+	r_rotate(a);
 	++bm->moves[2];
 	write(1, "rra\n", 4);
 }
 
 void	pa(t_bench *bm, t_stack **a, t_stack **b)
 {
-	p(b, a);
+	push(b, a);
 	++bm->moves[3];
 	write(1, "pa\n", 3);
 }

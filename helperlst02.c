@@ -1,17 +1,16 @@
 #include "push_swap.h"
 
 t_stack	*ft_lstmin(t_stack *stack)
-{
-	int		min;
+{	
 	t_stack *current;
 	t_stack *min_node;
 
-	current = *stack;
-	min = INT_MAX;
+	min_node = stack;
+	current = min_node->next;
 	while (current)
 	{
-		if ((current)->value < min)
-			min_node = current->value;
+		if ((current)->value < min_node->value)
+			min_node = current;
 		current = current->next;
 	}
 	return (min_node);
@@ -21,14 +20,13 @@ t_stack *ft_lstmax(t_stack *stack)
 {
 	t_stack *max_node;
 	t_stack *current;
-	int		max;
 
-	current = *stack;
-	max = INT_MIN;
+	max_node = stack;
+	current = max_node->next;
 	while (current)
 	{
-		if ((current)->value > max)
-			max_node = current->value;
+		if ((current)->value > max_node->value)
+			max_node = current;
 		current = current->next;
 	}
 	return (max_node);

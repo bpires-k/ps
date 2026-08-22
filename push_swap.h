@@ -30,6 +30,8 @@ double	compute_disorder(t_stack *stack);
 
 //init_bench.c
 t_bench *init_bench(void);
+void print_bench(t_bench *bm);
+int sum_moves(t_bench *bm);
 
 //clean.c
 int free_all(t_bench *bm, t_stack **a, t_stack **b);
@@ -48,6 +50,11 @@ long ft_atol(char *nb);
 int ft_strcmp(char *s1, char *s2);
 int	ft_sqrt(int nb);
 int is_sorted(t_stack **a, t_stack **b);
+int ft_putchar_fd(int fd, char c);
+
+//helper02.c
+int ft_printf(int fd, const char*format, ...);
+
 //helperlst01.c
 t_stack *ft_lstnew(int value);
 void ft_lstadd_front(t_stack **stack, t_stack *new);

@@ -50,3 +50,8 @@ int	is_sorted(t_stack **a, t_stack **b)
 		return (1);
 	return (0);
 }
+
+int	ft_putchar_fd(int fd, char c)
+{
+	return (write(fd, &c, 1));
+}
