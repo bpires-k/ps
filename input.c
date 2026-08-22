@@ -17,9 +17,9 @@ int	set_flag(t_bench *benchmark, char *av)
 		benchmark->strategy = "simple";
 	else if (ft_strcmp(av, "medium") == 0)
 		benchmark->strategy = "medium";
-	else if (ft_strcmp(av, "complex"))
+	else if (ft_strcmp(av, "complex") == 0)
 		benchmark->strategy = "complex";
-	else if (ft_strcmp(av, "adaptive"))
+	else if (ft_strcmp(av, "adaptive") == 0)
 		benchmark->strategy = "adaptive";
 	else
 		return (0);
@@ -41,7 +41,7 @@ int	set_input(t_bench *benchmark, t_stack **a, char *av)
 
 int	set_inputs(t_bench *benchmark, t_stack **a, char **av)
 {
-int	input_status;
+	int	input_status;
 	int	arg_status;
 	int	arg_len;
 
@@ -57,7 +57,8 @@ int	input_status;
 	input_status = set_input(benchmark, a, (*av));
 	if (input_status == -1)
 		return (-1);
-	arg_status += input_status + 1;
+	arg_status += input_status;
+	(*av) += arg_len + 1;
 	return (arg_status);
 }
 
@@ -73,7 +74,7 @@ int	input_checker(t_bench *benchmark, t_stack **a, int ac, char **av)
 	{
 		arg_status = 0;
 		while (*av[i] == ' ')
-	++av[i];
+			++av[i];
 		if (*av[i] == 0)
 			return (-1);
 		while (arg_status < 2)
